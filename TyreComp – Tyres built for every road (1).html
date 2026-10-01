@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TyreComp – Tyres built for every road</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f3f3f1;--ink:#16181c;--mut:#5d636c;--red:#d71920;--red2:#a80f15;--line:#e2e2de;--dark:#16181c;--card:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101214;--bg2:#181b1f;--ink:#f1f1ee;--mut:#9aa1ab;--line:#2a2e34;--card:#1a1d21;--dark:#0a0b0c}}
+:root[data-theme="dark"]{--bg:#101214;--bg2:#181b1f;--ink:#f1f1ee;--mut:#9aa1ab;--line:#2a2e34;--card:#1a1d21;--dark:#0a0b0c}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Barlow,system-ui,sans-serif}
+h1,h2,h3{font-family:'Barlow Condensed',Impact,sans-serif;margin:0;line-height:1.05;letter-spacing:.2px}
+a{color:inherit;text-decoration:none}
+.w{max-width:1200px;margin:0 auto;padding:0 20px}
+svg.i{width:1.2em;height:1.2em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.2em}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.top{background:var(--dark);color:#d8d8d4;font-size:13px}
+.top .w{display:flex;justify-content:space-between;gap:12px;padding-top:7px;padding-bottom:7px;flex-wrap:wrap}
+.top span{margin-right:16px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:3px solid var(--red)}
+.hd{display:flex;align-items:center;gap:20px;padding:10px 0}
+.logo{display:flex;align-items:center;gap:10px;font:800 30px 'Barlow Condensed';letter-spacing:.5px}
+.logo b{color:var(--red)}
+.spin{animation:spin 4s linear infinite;width:46px;height:46px;flex:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.logo:hover .spin{animation-duration:.8s}
+.search{flex:1;display:flex;border:2px solid var(--line);border-radius:6px;overflow:hidden;background:var(--card)}
+.search:focus-within{border-color:var(--red)}
+.search input{flex:1;border:0;padding:11px 14px;font:inherit;background:transparent;color:var(--ink);min-width:0}
+.search input:focus{outline:0}
+.search button{border:0;background:var(--red);color:#fff;padding:0 18px;cursor:pointer;font-size:18px}
+.acts{display:flex;gap:6px}
+.acts a{display:flex;flex-direction:column;align-items:center;font-size:12px;padding:4px 10px;color:var(--mut);border-radius:6px}
+.acts a:hover{color:var(--red)}
+.acts svg{font-size:22px}
+nav{background:var(--bg2);border-bottom:1px solid var(--line)}
+nav .w{display:flex;gap:2px;flex-wrap:wrap}nav a.on{color:var(--red);border-color:var(--red)}
+nav a{padding:12px 16px;font-weight:600;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-1px}
+nav a:hover{color:var(--red);border-color:var(--red)}
+.hero{background:linear-gradient(105deg,#16181c 55%,#a80f15);color:#fff;overflow:hidden;position:relative}
+.hero .w{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:20px;padding-top:56px;padding-bottom:56px}
+.hero h1{font-size:clamp(44px,7vw,86px);font-weight:800;text-transform:uppercase}
+.hero p{max-width:46ch;color:#d4d4d0;font-size:18px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:13px 26px;font:700 18px 'Barlow Condensed';letter-spacing:.5px;border-radius:4px;border:2px solid var(--red);cursor:pointer;text-transform:uppercase}
+.btn:hover{background:var(--red2);border-color:var(--red2)}
+.btn.o{background:transparent;border-color:#fff}
+.btn.o:hover{background:#fff;color:#16181c}
+.hero .big{width:min(100%,430px);justify-self:center;animation:spin 14s linear infinite}
+.sec{padding:80px 0}
+.sec.alt{background:color-mix(in srgb,var(--bg2) 80%,transparent)}
+.sh{display:flex;justify-content:space-between;align-items:end;margin-bottom:36px;gap:16px}
+.sh h2{font-size:clamp(30px,4vw,44px);text-transform:uppercase}
+.sh h2:after{content:"";display:block;width:56px;height:5px;background:var(--red);margin-top:8px}
+.acc{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-36px;position:relative;z-index:2}
+.acc a{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--red);padding:20px;display:flex;gap:14px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.acc a:hover{transform:translateY(-3px)}
+.acc svg{font-size:34px;color:var(--red);flex:none}
+.acc b{display:block;font:700 20px 'Barlow Condensed';text-transform:uppercase}
+.acc small{color:var(--mut)}
+.car{position:relative;padding:0 64px}
+.vp{overflow:hidden}
+.tr{display:flex;transition:transform .5s ease}
+.slide{flex:0 0 33.3333%;padding:0 14px}.vp{padding:6px 0}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;height:100%;display:flex;flex-direction:column}
+.pc .im{display:block;position:relative;aspect-ratio:4/3;overflow:hidden}.ph{width:100%;height:100%;display:block}
+.pc .im svg.t{width:150px;height:150px}
+.pc:hover .t{animation:spin 3s linear infinite}
+.tag{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font:700 13px 'Barlow Condensed';padding:2px 9px;text-transform:uppercase;border-radius:3px}
+.pc .bd{padding:11px 13px 13px;display:flex;flex-direction:column;gap:2px;flex:1}
+.pc .br{color:var(--mut);font-size:13px}
+.pc h3{font-size:19px}
+.pc .sz{color:var(--mut);font-size:14px}
+.pc .pr{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:10px}
+.pc .pr b{font:700 20px 'Barlow Condensed'}
+.pc .pr button{border:2px solid var(--red);background:none;color:var(--red);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:15px}
+.pc .pr button:hover{background:var(--red);color:#fff}
+.arr{position:absolute;top:calc(50% - 22px);width:44px;height:44px;border-radius:50%;border:0;background:var(--dark);color:#fff;cursor:pointer;font-size:20px;z-index:3}
+.arr:hover{background:var(--red)}
+.arr.l{left:0}.arr.r{right:0}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+.dots button{width:28px;height:5px;border:0;background:var(--line);cursor:pointer;padding:0}
+.dots button.on{background:var(--red)}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cat{background:var(--dark);color:#fff;padding:24px;min-height:150px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;border-radius:6px}
+.cat svg.t{position:absolute;right:-40px;top:-40px;width:170px;height:170px;opacity:.9;transition:transform .6s}
+.cat:hover svg.t{transform:rotate(90deg)}
+.cat:hover{outline:3px solid var(--red)}
+.cat h3{font-size:28px;text-transform:uppercase}
+.cat span{color:#bbb;font-size:14px}
+.stats{background:var(--red);color:#fff}
+.stats .w{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-top:34px;padding-bottom:34px;text-align:center}
+.stats b{display:block;font:800 52px 'Barlow Condensed'}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why div{background:var(--card);border:1px solid var(--line);padding:26px;border-radius:6px}
+.why svg{font-size:34px;color:var(--red)}
+.why h3{font-size:24px;margin:10px 0 6px;text-transform:uppercase}
+.why p{margin:0;color:var(--mut)}
+.brands{display:flex;flex-wrap:wrap;gap:12px}
+.brands a{border:2px solid var(--line);padding:9px 18px;font:700 19px 'Barlow Condensed';border-radius:4px;background:var(--card)}
+.brands a:hover{border-color:var(--red);color:var(--red)}
+.news{background:var(--dark);color:#fff}
+.news .w{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding-top:40px;padding-bottom:40px}
+.news h2{font-size:36px;text-transform:uppercase}
+.news form{display:flex;gap:8px;flex:1;min-width:260px;max-width:520px}
+.news input{flex:1;padding:12px;border:0;border-radius:4px;font:inherit;min-width:0}
+footer{background:#0a0b0c;color:#b9bcc2;padding-top:48px;font-size:15px}
+.fg{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.2fr;gap:28px}
+footer h4{color:#fff;font:700 20px 'Barlow Condensed';text-transform:uppercase;margin:0 0 12px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer a:hover{color:#fff;text-decoration:underline}
+.soc{display:flex;gap:10px;margin-top:14px}
+.soc a{width:38px;height:38px;border:1px solid #333;border-radius:50%;display:grid;place-items:center}
+.soc a:hover{background:var(--red);border-color:var(--red)}
+.cp{border-top:1px solid #222;margin-top:36px;padding:18px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px}
+#toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%) translateY(90px);background:var(--dark);color:#fff;padding:12px 20px;border-left:5px solid var(--red);transition:.3s;z-index:50}
+#toast.s{transform:translateX(-50%)}
+@media(max-width:1000px){.slide{flex-basis:50%}.acc,.cats{grid-template-columns:repeat(2,1fr)}.fg{grid-template-columns:1fr 1fr}.hero .w{grid-template-columns:1fr}.hero .big{width:240px;order:-1}}
+@media(max-width:640px){.acts a span{display:none}.hd{flex-wrap:wrap}.search{order:3;flex-basis:100%}.logo{font-size:26px}.slide{flex-basis:100%}.why,.stats .w{grid-template-columns:1fr 1fr}.why{grid-template-columns:1fr}.car{padding:0 46px}.arr{width:38px;height:38px;top:calc(50% - 19px)}.top .w>div:last-child{display:none}}
+.acts a{position:relative}.bg{position:absolute;top:-2px;right:2px;background:var(--red);color:#fff;border-radius:10px;font-size:11px;padding:0 6px}
+.pg{padding-top:32px;padding-bottom:80px;min-height:60vh}.pg h1{font-size:clamp(34px,5vw,54px);text-transform:uppercase}
+.bc{font-size:14px;color:var(--mut);margin-bottom:10px}.bc a:hover{color:var(--red)}
+.shop{display:grid;grid-template-columns:260px 1fr;gap:28px;margin-top:20px;align-items:start}
+.flt{border:1px solid var(--line);background:var(--card);padding:18px;border-radius:6px;position:sticky;top:130px;display:grid;gap:18px}
+.flt h4{margin:0 0 8px;font:700 18px 'Barlow Condensed';text-transform:uppercase}
+.flt .cl a{display:flex;justify-content:space-between;padding:7px 10px;border-radius:4px}.flt .cl a:hover{background:var(--bg2)}.flt .cl a.on{background:var(--red);color:#fff}
+.flt input[type=range]{width:100%;accent-color:var(--red)}
+select{width:100%;padding:9px;border:2px solid var(--line);border-radius:4px;background:var(--card);color:var(--ink);font:inherit}
+.tb{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.tb label{display:flex;align-items:center;gap:8px;white-space:nowrap}.tb select{width:auto}
+.seg{display:flex}.seg button{padding:8px 14px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font:600 14px Barlow}.seg button.on{background:var(--red);border-color:var(--red);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 28px}
+.det{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;margin-top:20px}.det .ph{border-radius:6px}
+.spec{width:100%;border-collapse:collapse;margin:16px 0}.spec td{padding:9px 0;border-bottom:1px solid var(--line)}.spec td:first-child{color:var(--mut)}
+.txt{max-width:70ch}.txt p{color:var(--mut)}.txt a{color:var(--red)}
+.frm{display:grid;gap:12px;max-width:420px;margin-top:16px}.frm input,.frm textarea{padding:11px;border:2px solid var(--line);border-radius:4px;font:inherit;background:var(--card);color:var(--ink)}
+.row{display:flex;gap:16px;align-items:center;border-bottom:1px solid var(--line);padding:12px 0}
+.dl{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}.dl div{border:1px solid var(--line);border-left:4px solid var(--red);padding:14px;background:var(--card)}
+.pc h3 a:hover{color:var(--red)}
+@media(max-width:1000px){.shop,.det{grid-template-columns:1fr}.flt{position:static}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.dl{grid-template-columns:1fr}.grid{grid-template-columns:1fr;gap:24px}.ddp{width:min(300px,86vw)}nav a{padding:9px 10px;font-size:14px}}
+.ph2{background:linear-gradient(105deg,#16181c 60%,#a80f15);color:#fff;position:relative;overflow:hidden;padding:44px 0 48px}.ph2 .w{position:relative;z-index:1}.ph2 h1{font-size:clamp(40px,6vw,72px);text-transform:uppercase}.ph2 p{max-width:52ch;color:#d4d4d0;font-size:18px;margin:8px 0 0}.ph2 .bc,.ph2 .bc a{color:#cfcfcf}.ph2 .rt{position:absolute;right:-70px;top:50%;margin-top:-180px;width:360px;opacity:.85}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .6s,transform .6s}.rv.in{opacity:1;transform:none}
+.h2{font-size:clamp(28px,4vw,40px);text-transform:uppercase;margin:44px 0 14px}.h2:after{content:"";display:block;width:56px;height:5px;background:var(--red);margin-top:8px}
+.tl{position:relative;max-width:820px;margin:30px auto}.tl:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:4px;background:repeating-linear-gradient(var(--red) 0 10px,transparent 10px 18px);transform:translateX(-50%)}
+.ti{width:50%;padding:0 34px 34px 0;text-align:right;position:relative}.ti.r{margin-left:50%;padding:0 0 34px 34px;text-align:left}.ti:after{content:"";position:absolute;right:-11px;top:6px;width:22px;height:22px;border-radius:50%;background:var(--red);border:4px solid var(--bg)}.ti.r:after{left:-11px;right:auto}.ti b{font:800 40px 'Barlow Condensed';color:var(--red)}.ti h3{font-size:24px}.ti p{color:var(--mut);margin:4px 0 0}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.perks div{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--red);padding:18px;font-size:18px}.perks svg{font-size:30px;color:var(--red)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 22px}.chips button{padding:8px 18px;border:2px solid var(--line);border-radius:20px;background:var(--card);color:var(--ink);cursor:pointer;font:600 14px Barlow}.chips button:hover{border-color:var(--red)}.chips button.on{background:var(--red);border-color:var(--red);color:#fff}
+.jd,.nw{border:1px solid var(--line);background:var(--card);border-radius:6px;margin-bottom:12px;transition:border-color .2s}.jd:hover,.nw:hover{border-color:var(--red)}.jd[open],.nw[open]{border-left:5px solid var(--red)}
+.jd summary,.nw summary{padding:16px 18px;cursor:pointer;display:flex;gap:14px;align-items:center;flex-wrap:wrap}.jd summary b{font:700 24px 'Barlow Condensed';flex:1}.nw summary b{font:700 24px 'Barlow Condensed';flex-basis:100%}.dt{color:var(--mut);font-size:14px}
+.jd p,.nw p{padding:0 18px 14px;margin:0;color:var(--mut);animation:fd .35s}.jd .btn{margin:0 18px 16px}.pill{background:var(--bg2);border:1px solid var(--line);font-style:normal;font-size:12px;padding:2px 10px;border-radius:12px}
+.kit{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;background:var(--dark);color:#fff;padding:24px;border-radius:6px;margin-top:30px}.kit h2{font-size:30px;text-transform:uppercase}.kit p{margin:4px 0 0;color:#bbb}
+.rings,.lcs{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}.rg{width:100%;max-width:150px}.rg .bgc{fill:none;stroke:var(--line);stroke-width:10}.rg .fg{fill:none;stroke:var(--red);stroke-width:10;stroke-linecap:round;stroke-dasharray:314;stroke-dashoffset:314;transition:stroke-dashoffset 1.6s ease}.rgw.in .fg{stroke-dashoffset:var(--o)}.rg text{fill:var(--ink);font:800 28px 'Barlow Condensed'}
+.lc{border-top:4px solid var(--red);background:var(--card);padding:18px}.lc h3{font-size:26px;text-transform:uppercase}.lc p{margin:4px 0 0;color:var(--mut)}
+.calc{background:var(--dark);color:#fff;padding:26px;border-radius:6px;display:grid;gap:16px}.res{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center}.res b{display:block;font:800 44px 'Barlow Condensed'}
+.cpn{animation:fd .4s}@keyframes fd{from{opacity:0;transform:translateY(10px)}}
+.gauge{max-width:280px;text-align:center;margin:10px 0}#nd{transform-origin:100px 100px;transition:transform .9s cubic-bezier(.3,1.5,.5,1)}.gauge b{font:800 36px 'Barlow Condensed'}
+.tbar{height:22px;background:var(--line);border-radius:11px;overflow:hidden;margin:12px 0}.tbar i{display:block;height:100%;width:0;transition:width .5s,background .5s}
+.fq{border-bottom:1px solid var(--line)}.fq button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;background:none;border:0;color:var(--ink);font:600 18px Barlow;text-align:left;padding:16px 4px;cursor:pointer}.fq button svg{color:var(--red);flex:none;transition:transform .3s}.fq.open button svg{transform:rotate(135deg)}
+.fa{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s}.fq.open .fa{grid-template-rows:1fr}.fa>div{overflow:hidden}.fa p{margin:0 4px 16px;color:var(--mut)}
+.stp{display:flex;gap:8px}.stp button{flex:1;padding:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font:700 18px 'Barlow Condensed';text-transform:uppercase}.stp button.on{border-color:var(--red);color:var(--red)}
+@media(max-width:640px){.perks,.res{grid-template-columns:1fr}.rings,.lcs{grid-template-columns:repeat(2,1fr)}.ph2 .rt{width:220px;right:-60px;opacity:.5}.tl:before{left:8px}.ti,.ti.r{width:100%;margin:0;padding:0 0 28px 34px;text-align:left}.ti:after,.ti.r:after{left:-3px;right:auto}}
+body{position:relative}
+body:before,body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1}
+body:before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M0 36L24 12l24 24M0 12L24-12l24 24' fill='none' stroke='%23888' stroke-width='3'/%3E%3C/svg%3E");opacity:.07;animation:tread 50s linear infinite;-webkit-mask-image:linear-gradient(#000,transparent 85%);mask-image:linear-gradient(#000,transparent 85%)}
+body:after{background:radial-gradient(520px 380px at 12% 18%,rgba(215,25,32,.10),transparent 70%),radial-gradient(480px 380px at 88% 62%,rgba(215,25,32,.08),transparent 70%);animation:drift 24s ease-in-out infinite alternate}
+@keyframes tread{to{background-position:0 -96px}}@keyframes drift{to{transform:translate(-4%,5%) scale(1.12)}}
+.chips a{padding:7px 16px;border:2px solid var(--line);border-radius:20px;background:var(--card);font:600 14px Barlow}.chips a:hover{border-color:var(--red)}.chips a.on{background:var(--red);border-color:var(--red);color:#fff}.chips small{opacity:.7}
+.ctl{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.tb{margin-bottom:22px}.tb b{font-weight:500;color:var(--mut)}
+.sm,.tb select.sm{padding:6px 12px;font:600 13px Barlow;border:2px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);cursor:pointer}.tb label{font-size:13px;color:var(--mut)}
+#fbtn svg{transform:rotate(90deg);font-size:12px;vertical-align:-.1em}#fbtn[aria-expanded=true] svg{transform:rotate(-90deg)}
+.bg2{background:var(--red);color:#fff;border-radius:9px;padding:0 6px;font-size:11px}.bg2[hidden]{display:none}
+.dd{position:relative}.ddp{position:absolute;top:calc(100% + 8px);left:0;width:300px;z-index:15;background:var(--card);border:1px solid var(--line);border-radius:8px;box-shadow:0 14px 34px rgba(0,0,0,.22);padding:16px;display:grid;gap:14px;animation:fd .2s}.ddp[hidden]{display:none}
+.ddp h4{margin:0 0 6px;font:700 15px 'Barlow Condensed';text-transform:uppercase}.ddp input[type=range]{width:100%;accent-color:var(--red)}.ddp select{width:100%}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.seg button{padding:6px 12px;font-size:13px}.seg button:first-child{border-radius:6px 0 0 6px}.seg button:last-child{border-radius:0 6px 6px 0}
+.acc{gap:20px}.why{gap:26px}.cats{gap:20px}.pc{box-shadow:0 1px 2px rgba(0,0,0,.04)}
+body:before,body:after{content:none}
+.bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bgfx i{position:absolute;border-radius:50%;filter:blur(60px);background:rgba(215,25,32,.22);animation:fl 20s ease-in-out infinite alternate}
+.g1{width:380px;height:380px;left:-100px;top:12%}.g2{width:340px;height:340px;right:-80px;top:48%;animation-duration:26s!important;animation-delay:-8s}.g3{width:280px;height:280px;left:42%;bottom:-120px;background:rgba(242,169,0,.14)!important;animation-duration:30s!important}
+@keyframes fl{to{transform:translate(60px,-50px) scale(1.15)}}
+.rr{position:absolute;width:640px;fill:none;stroke:var(--red);stroke-width:2;opacity:.14}.rr .d{stroke-width:14;stroke-dasharray:6 5}
+.rr.a{right:-220px;bottom:-220px;animation:spin 90s linear infinite}.rr.b{left:-260px;top:-200px;animation:spin 120s linear infinite reverse;opacity:.1}
+.pim{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:repeating-linear-gradient(135deg,var(--bg2) 0 14px,var(--card) 14px 28px);display:grid;place-items:center;text-align:center}
+.pim:before{content:"";position:absolute;inset:8px;border:2px dashed var(--line);border-radius:4px}
+.pim img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.phd{display:grid;gap:2px;justify-items:center;color:var(--mut);padding:8px}.phd svg{width:44px;height:44px;opacity:.55}.phd b{font:800 28px 'Barlow Condensed';color:var(--ink);letter-spacing:.5px}.phd span{font-size:12px}
+.row .pim .phd span,.row .pim .phd svg{display:none}.row .pim .phd b{font-size:16px}.det .pim{border-radius:6px}
+@media(prefers-reduced-motion:reduce){body:before,body:after{animation:none!important}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><div class="bgfx" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i><svg class="rr a" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96"/><circle class="d" cx="100" cy="100" r="80"/><circle cx="100" cy="100" r="62"/><circle cx="100" cy="100" r="30"/></svg><svg class="rr b" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96"/><circle class="d" cx="100" cy="100" r="80"/><circle cx="100" cy="100" r="62"/><circle cx="100" cy="100" r="30"/></svg></div>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="tyre" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#1b1b1d"/><circle cx="50" cy="50" r="46" fill="none" stroke="#3a3a3e" stroke-width="7" stroke-dasharray="3.2 2.2"/><circle cx="50" cy="50" r="38" fill="none" stroke="#2b2b2f" stroke-width="2"/><circle cx="50" cy="50" r="28" fill="#c9ccd1"/><circle cx="50" cy="50" r="25" fill="#e8eaed"/><g stroke="#8b9099" stroke-width="3.2" stroke-linecap="round"><path d="M50 50V28M50 50l19-11M50 50l19 11M50 50V72M50 50L31 61M50 50L31 39"/></g><circle cx="50" cy="50" r="7" fill="var(--hub,#d71920)"/><circle cx="50" cy="50" r="2.5" fill="#fff"/><path d="M12 42a40 40 0 0 1 8-14" stroke="#d71920" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".9"/></symbol>
+<symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+<symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></symbol>
+<symbol id="cart" viewBox="0 0 24 24"><path d="M3 4h3l2.5 11h10l2-8H7"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></symbol>
+<symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></symbol>
+<symbol id="car" viewBox="0 0 24 24"><path d="M3 16v-4l2-5h14l2 5v4M3 16h18M3 16v2h3v-2M18 16v2h3v-2"/><circle cx="7.500" cy="13" r=".8"/><circle cx="16.500" cy="13" r=".8"/></symbol>
+<symbol id="ruler" viewBox="0 0 24 24"><rect x="2" y="8" width="20" height="8" rx="1.500"/><path d="M6 8v3M10 8v4M14 8v3M18 8v4"/></symbol>
+<symbol id="scale" viewBox="0 0 24 24"><path d="M12 3v18M5 21h14M5 7h14M5 7l-3 7a3.500 3.500 0 0 0 6 0zM19 7l-3 7a3.500 3.500 0 0 0 6 0z"/></symbol>
+<symbol id="shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6z"/><path d="m8.500 12 2.500 2.500 4.500-5"/></symbol>
+<symbol id="truck" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 10h4l3 3v3h-7"/><circle cx="6.500" cy="17.500" r="1.800"/><circle cx="17.500" cy="17.500" r="1.800"/></symbol>
+<symbol id="leaf" viewBox="0 0 24 24"><path d="M5 19c0-9 5-14 15-14 0 10-5 15-14 15M5 19c2-5 5-8 9-10"/></symbol>
+<symbol id="left" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+<symbol id="right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+<symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+<symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+<symbol id="share" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.500"/><circle cx="18" cy="6" r="2.500"/><circle cx="18" cy="18" r="2.500"/><path d="m8.200 11 7.600-4M8.200 13l7.600 4"/></symbol>
+<symbol id="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.500 1.500M17.500 17.500 19 19M5 19l1.500-1.500M17.500 6.500 19 5"/></symbol>
+<radialGradient id="rim"><stop offset="0" stop-color="#f6f7f9"/><stop offset="1" stop-color="#8d939c"/></radialGradient><radialGradient id="studio" cx=".5" cy=".45" r=".75"><stop offset="0" stop-color="#fafafa"/><stop offset="1" stop-color="#c3c8cf"/></radialGradient><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fc1e6"/><stop offset="1" stop-color="#f3e9d8"/></linearGradient><linearGradient id="road" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#55585e"/><stop offset="1" stop-color="#2a2c30"/></linearGradient><linearGradient id="shade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".4"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></linearGradient>
+</defs></svg>
+
+<div class="top"><div class="w"><div><span><svg class="i"><use href="#phone"/></svg> 1800-555-TYRE</span><span><svg class="i"><use href="#truck"/></svg> Free fitting on orders above ₹20,000</span></div><div><a href="#">Dealer login</a> &nbsp;|&nbsp; <a href="#">Track order</a> &nbsp;|&nbsp; <a href="#">Support</a></div></div></div>
+
+<header><div class="w hd">
+<a class="logo" href="#"><svg class="spin" viewBox="0 0 100 100" aria-hidden="true"><use href="#tyre"/></svg><span>Tyre<b>Comp</b></span></a>
+<form class="search" role="search" onsubmit="return go(event)"><input id="q" type="search" placeholder="Search tyres by brand, model or size (e.g. 205/55 R16)" aria-label="Search tyres"><button aria-label="Search"><svg class="i"><use href="#search"/></svg></button></form>
+<div class="acts"><a href="#/dealers"><svg class="i"><use href="#pin"/></svg><span>Dealers</span></a><a href="#/signin"><svg class="i"><use href="#user"/></svg><span>Sign in</span></a><a href="#/cart"><svg class="i"><use href="#cart"/></svg><span>Cart</span><b class="bg" id="cc">0</b></a><a href="#" onclick="th();return false" aria-label="Toggle theme"><svg class="i"><use href="#sun"/></svg><span>Theme</span></a></div>
+</div>
+<nav aria-label="Main"><div class="w"><a href="#/">Home</a><a href="#/shop/all">All tyres</a><a href="#/shop/car">Car</a><a href="#/shop/suv">SUV &amp; 4x4</a><a href="#/shop/bike">Two-wheeler</a><a href="#/shop/truck">Truck &amp; Bus</a><a href="#/shop/farm">Farm</a><a href="#/dealers">Find a dealer</a><a href="#/about">About</a><a href="#/contact">Contact</a></div></nav></header>
+
+<main id="v-home"><section class="hero"><div class="w"><div><h1>Grip the road.<br>Own the miles.</h1><p>Engineered in India, tested on every terrain. Explore the new Velox Series with 20% longer tread life and shorter braking on wet roads.</p><p style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="#featured">Shop new arrivals</a><a class="btn o" href="#/dealers">Find a dealer</a></p></div>
+<svg class="big" viewBox="0 0 100 100" aria-hidden="true"><use href="#tyre"/></svg></div></section>
+
+<div class="w"><div class="acc">
+<a href="#/shop/all"><svg class="i"><use href="#car"/></svg><div><b>By vehicle</b><small>Make, model, variant</small></div></a>
+<a href="#/shop/all"><svg class="i"><use href="#ruler"/></svg><div><b>By tyre size</b><small>Width, ratio, rim</small></div></a>
+<a href="#/dealers"><svg class="i"><use href="#pin"/></svg><div><b>Dealer locator</b><small>Fitting near you</small></div></a>
+<a href="#/shop/all"><svg class="i"><use href="#scale"/></svg><div><b>Compare tyres</b><small>Side by side specs</small></div></a></div></div>
+
+<section class="sec" id="featured"><div class="w">
+<div class="sh"><h2>Featured &amp; trending</h2><a href="#" class="btn o" style="color:var(--ink);border-color:var(--ink)">View all</a></div>
+<div class="car"><button class="arr l" aria-label="Previous"><svg class="i"><use href="#left"/></svg></button>
+<div class="vp"><div class="tr" id="tr"></div></div>
+<button class="arr r" aria-label="Next"><svg class="i"><use href="#right"/></svg></button></div>
+<div class="dots" id="dots"></div></div></section>
+
+<section class="sec alt" id="cats"><div class="w"><div class="sh"><h2>Shop by category</h2></div><div class="cats" id="catg"></div></div></section>
+
+<section class="stats"><div class="w"><div><b>45+</b>years on the road</div><div><b>2,800</b>dealers nationwide</div><div><b>60M</b>tyres delivered</div><div><b>4.7★</b>customer rating</div></div></section>
+
+<section class="sec" id="why"><div class="w"><div class="sh"><h2>Why TyreComp</h2></div><div class="why">
+<div><svg class="i"><use href="#shield"/></svg><h3>5‑year warranty</h3><p>Every passenger tyre is covered against manufacturing defects for five years.</p></div>
+<div><svg class="i"><use href="#truck"/></svg><h3>Fitted at your door</h3><p>Book a mobile fitting van and get tyres changed at home or office.</p></div>
+<div><svg class="i"><use href="#leaf"/></svg><h3>Lower rolling resistance</h3><p>EcoGrip compounds save fuel and cut CO₂ on every journey.</p></div></div></div></section>
+
+<section class="sec alt" id="brands"><div class="w"><div class="sh"><h2>Our tyre ranges</h2></div><div class="brands">
+<a href="#">Velox</a><a href="#">TerraMax</a><a href="#">EcoGrip</a><a href="#">AquaShield</a><a href="#">RoadKing</a><a href="#">Trailblazer</a><a href="#">ZipRide</a><a href="#">HaulPro</a><a href="#">FieldMaster</a></div></div></section>
+
+<section class="news" id="dealers"><div class="w"><div><h2>Find a dealer near you</h2><span style="color:#bbb">Enter your pincode to see fitting centres.</span></div><form onsubmit="return dl(event)"><input aria-label="Pincode" placeholder="Pincode or city"><button class="btn">Locate</button></form></div></section>
+
+</main><main id="v-page" hidden></main><footer><div class="w"><div class="fg">
+<div><a class="logo" href="#" style="color:#fff"><svg class="spin" viewBox="0 0 100 100" aria-hidden="true"><use href="#tyre"/></svg><span>Tyre<b>Comp</b></span></a><p style="margin-top:12px">Quality tyres for cars, bikes, trucks and tractors. Safe journeys since 1980.</p><div class="soc"><a href="#" aria-label="Share"><svg class="i"><use href="#share"/></svg></a><a href="#" aria-label="Email"><svg class="i"><use href="#mail"/></svg></a><a href="#" aria-label="Call"><svg class="i"><use href="#phone"/></svg></a></div></div>
+<div><h4>Company</h4><ul><li><a href="#">Who we are</a></li><li><a href="#">Our story</a></li><li><a href="#">Careers</a></li><li><a href="#">Press &amp; media</a></li><li><a href="#">Sustainability</a></li></ul></div>
+<div><h4>Products</h4><ul><li><a href="#">Car tyres</a></li><li><a href="#">SUV &amp; 4x4</a></li><li><a href="#">Two‑wheeler</a></li><li><a href="#">Truck &amp; bus</a></li><li><a href="#">Farm tyres</a></li></ul></div>
+<div><h4>Support</h4><ul><li><a href="#">Contact us</a></li><li><a href="#">Warranty claims</a></li><li><a href="#">Tyre care guide</a></li><li><a href="#">FAQs</a></li><li><a href="#">Become a dealer</a></li></ul></div>
+<div><h4>Reach us</h4><ul><li>1800‑555‑TYRE (toll free)</li><li>support@tyrecomp.example</li><li>Mon–Sat, 9am – 7pm</li></ul></div></div>
+<div class="cp"><span>© 2026 TyreComp. All rights reserved. Sample content for demonstration.</span><span><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Sitemap</a></span></div></div></footer>
+<div id="toast" role="status"></div>
+
+<script>
+const $=s=>document.querySelector(s),V0=$('#v-home'),PG=$('#v-page');
+const CATS=[['car','Car','Hatchback, sedan, EV'],['suv','SUV & 4x4','Highway, all-terrain'],['bike','Two-wheeler','Scooter, motorcycle'],['truck','Truck & Bus','Radial, long haul'],['farm','Farm','Tractor & implement']];
+const CN=Object.fromEntries(CATS.map(c=>[c[0],c[1]])),BR=['Velox','TerraMax','EcoGrip','AquaShield','RoadKing','Trailblazer','ZipRide','HaulPro','FieldMaster'];
+const P=`Velox GT|Velox|car|205/55 R16|16|7450|4.6|New|#2f5d8a
+EcoGrip Plus|EcoGrip|car|185/65 R15|15|4980|4.4|Best seller|#d4d7db
+AquaShield W|AquaShield|car|215/60 R16|16|6820|4.5||#2c8a5b
+Velox Touring|Velox|car|195/65 R15|15|5600|4.3||#7a3fb0
+City Lite|EcoGrip|car|165/80 R14|14|3900|4.1||#e0661f
+TerraMax AT|TerraMax|suv|265/65 R17|17|12900|4.7|Trending|#1f2937
+RoadKing HT|RoadKing|suv|235/75 R15|15|9300|4.5|Top rated|#c9a227
+Trailblazer MT|Trailblazer|suv|285/70 R17|17|15800|4.8|Off-road|#2c8a5b
+Highland SUV|TerraMax|suv|225/60 R18|18|11200|4.4||#d4d7db
+ZipRide Sport|ZipRide|bike|110/70 R17|17|2350|4.6|New|#d71920
+ZipRide Scooter|ZipRide|bike|90/90 R12|12|1650|4.2||#2f5d8a
+CruiseMax|ZipRide|bike|130/70 R18|18|3400|4.5||#1f2937
+HaulPro XL|HaulPro|truck|10.00 R20|20|24500|4.5|Heavy duty|#2f5d8a
+HaulPro City|HaulPro|truck|8.25 R16|16|16800|4.3||#e0661f
+RoadKing Bus|RoadKing|truck|295/80 R22.5|22.5|28900|4.4||#c9a227
+FieldMaster R2|FieldMaster|farm|18.4-30|30|31500|4.6|Farm pick|#2c8a5b
+FieldMaster Front|FieldMaster|farm|7.5-16|16|6200|4.3||#2c8a5b`.split('\n').map((l,i)=>{const a=l.split('|');return{id:i,name:a[0],brand:a[1],cat:a[2],size:a[3],rim:+a[4],price:+a[5],rate:+a[6],tag:a[7],col:a[8]}});
+const D={cat:'all',q:'',brand:'',max:35000,rate:0,rim:'',sort:'feat',mode:'v'};let S={...D},C={};
+const inr=n=>'₹'+n.toLocaleString('en-IN');
+/* image placeholders: tyre = N.png, with vehicle = Nc.png (N = product number 1-17). Set IMG to your image folder, e.g. 'images/' */
+const IMG='';
+function scene(p,m){const f=(p.id+1)+(m=='t'?'':'c')+'.png',c=m=='t'?'tyre only':'with vehicle';
+return `<div class="pim"><div class="phd"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#tyre"/></svg><b>${f}</b><span>${p.name}, ${c}</span></div><img src="${IMG}${f}" alt="${p.name} ${c}" loading="lazy" onerror="this.remove()"></div>`}
+const card=p=>`<article class="pc"><a class="im" href="#/product/${p.id}">${p.tag?`<span class="tag">${p.tag}</span>`:''}${scene(p,S.mode)}</a><div class="bd"><span class="br">${p.brand}, ${CN[p.cat]}</span><h3><a href="#/product/${p.id}">${p.name}</a></h3><span class="sz">${p.size}, ★ ${p.rate}</span><div class="pr"><b>${inr(p.price)}</b><button aria-label="Add ${p.name} to cart" onclick="add(${p.id})"><svg class="i"><use href="#plus"/></svg></button></div></div></article>`;
+/* cart */
+function badge(){$('#cc').textContent=Object.values(C).reduce((a,b)=>a+b,0)}
+function add(i){C[i]=(C[i]||0)+1;badge();toast(P[i].name+' added to cart')}
+function qty(i,d){C[i]=Math.max(0,(C[i]||0)+d);badge();cart()}
+function cart(){const ids=Object.keys(C).filter(i=>C[i]);let t=0;const bt='class="btn o" style="color:var(--ink);border-color:var(--ink);padding:2px 12px"';
+PG.innerHTML=`<div class="w pg"><div class="bc"><a href="#/">Home</a> / Cart</div><h1>Your cart</h1>`+(ids.length?ids.map(i=>{const p=P[i];t+=p.price*C[i];return `<div class="row"><div style="width:110px">${scene(p,'t')}</div><div style="flex:1"><b>${p.name}</b><br>${p.size}</div><div><button ${bt} onclick="qty(${i},-1)" aria-label="Less">−</button> ${C[i]} <button ${bt} onclick="qty(${i},1)" aria-label="More">+</button></div><b>${inr(p.price*C[i])}</b></div>`}).join('')+`<h2 style="margin:20px 0">Total ${inr(t)}</h2><a class="btn" href="#/contact">Proceed to checkout</a>`:`<p>Your cart is empty.</p><a class="btn" href="#/shop/all">Browse tyres</a>`)+`</div>`}
+/* shop with filters + sorting */
+function list(){const q=S.q.toLowerCase().replace(/\s/g,'');let a=P.filter(p=>(S.cat=='all'||p.cat==S.cat)&&p.price<=S.max&&p.rate>=S.rate&&(!S.rim||p.rim==S.rim)&&(!S.brand||p.brand==S.brand)&&(!q||(p.name+p.brand+p.size+CN[p.cat]).toLowerCase().replace(/\s/g,'').includes(q)));
+const f={low:(a,b)=>a.price-b.price,high:(a,b)=>b.price-a.price,rate:(a,b)=>b.rate-a.rate,new:(a,b)=>b.id-a.id}[S.sort];if(f)a.sort(f);return a}
+function grid(){const a=list();$('#pv').textContent=inr(S.max);$('#rv').textContent=S.rate+'★';$('#rc').textContent=a.length+' tyres'+(S.q?' for "'+S.q+'"':'');
+$('#gr').innerHTML=a.length?a.map(card).join(''):'<p>No tyres match these filters. Raise the price limit or <a href="#/shop/all" style="color:var(--red)">view all tyres</a>.</p>';
+document.querySelectorAll('.seg button').forEach(b=>b.classList.toggle('on',b.dataset.m==S.mode));const n=(S.max<35000)+(S.rate>0)+!!S.rim+!!S.brand;$('#fn').textContent=n||'';$('#fn').hidden=!n}
+function shop(){const cn=S.cat=='all'?'All tyres':CN[S.cat],o=a=>a.map(x=>`<option>${x}</option>`).join('');
+PG.innerHTML=`<div class="w pg"><div class="bc"><a href="#/">Home</a> / <a href="#/shop/all">Shop</a> / ${cn}</div><h1>${cn}</h1><div class="chips">${[['all','All tyres'],...CATS].map(c=>`<a href="#/shop/${c[0]}" class="${c[0]==S.cat?'on':''}">${c[1]} <small>${P.filter(p=>c[0]=='all'||p.cat==c[0]).length}</small></a>`).join('')}</div>
+<div class="tb"><b id="rc"></b><div class="ctl"><div class="dd"><button class="sm" id="fbtn" aria-expanded="false" aria-controls="fpn">Filters <span id="fn" class="bg2"></span><svg class="i"><use href="#right"/></svg></button><div class="ddp" id="fpn" hidden>
+<div><h4>Max price: <span id="pv"></span></h4><input type="range" id="fp" min="1000" max="35000" step="500" aria-label="Maximum price"></div>
+<div><h4>Min rating: <span id="rv"></span></h4><input type="range" id="fr" min="0" max="5" step=".5" aria-label="Minimum rating"></div>
+<div class="two"><div><h4>Rim size</h4><select id="fm" aria-label="Rim size"><option value="">All</option>${o([...new Set(P.map(p=>p.rim))].sort((a,b)=>a-b))}</select></div>
+<div><h4>Brand</h4><select id="fb" aria-label="Brand"><option value="">All</option>${o(BR)}</select></div></div>
+<button class="sm" id="rs">Reset filters</button></div></div>
+<label>Sort <select id="so" class="sm"><option value="feat">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="rate">Top rated</option><option value="new">Newest</option></select></label>
+<div class="seg"><button data-m="v">With vehicle</button><button data-m="t">Tyre only</button></div></div></div><div class="grid" id="gr"></div></div>`;
+$('#fp').value=S.max;$('#fr').value=S.rate;$('#fb').value=S.brand;$('#so').value=S.sort;
+$('#fbtn').onclick=()=>{const p=$('#fpn'),h=p.hidden;p.hidden=!h;$('#fbtn').setAttribute('aria-expanded',h)};
+[['fp','max',1],['fr','rate',1],['fm','rim',0],['fb','brand',0],['so','sort',0]].forEach(([id,k,n])=>$('#'+id).oninput=e=>{S[k]=n?+e.target.value:e.target.value;grid()});
+document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{S.mode=b.dataset.m;grid()});
+$('#rs').onclick=()=>{S={...D,mode:S.mode,cat:S.cat};shop()};grid()}
+document.addEventListener('click',e=>{const p=$('#fpn');if(p&&!p.hidden&&!e.target.closest('.dd'))p.hidden=true});
+document.addEventListener('keydown',e=>{const p=$('#fpn');if(e.key=='Escape'&&p)p.hidden=true});
+function prod(p){const rel=P.filter(x=>x.cat==p.cat&&x.id!=p.id).slice(0,3);
+PG.innerHTML=`<div class="w pg"><div class="bc"><a href="#/">Home</a> / <a href="#/shop/all">Shop</a> / <a href="#/shop/${p.cat}">${CN[p.cat]}</a> / ${p.name}</div><div class="det"><div style="display:grid;gap:12px">${scene(p,'v')}${scene(p,'t')}</div><div><span class="br">${p.brand}</span><h1>${p.name}</h1><p>★ ${p.rate} customer rating</p><h2 style="font-size:44px">${inr(p.price)}</h2><table class="spec"><tr><td>Tyre size</td><td>${p.size}</td></tr><tr><td>Rim diameter</td><td>${p.rim} inch</td></tr><tr><td>Fits</td><td>${CN[p.cat]}</td></tr><tr><td>Warranty</td><td>5 years</td></tr></table><p style="display:flex;gap:12px;flex-wrap:wrap"><button class="btn" onclick="add(${p.id})">Add to cart</button><a class="btn o" style="color:var(--ink);border-color:var(--ink)" href="#/shop/${p.cat}">Back to ${CN[p.cat]}</a></p></div></div><div class="sh" style="margin-top:50px"><h2>More in ${CN[p.cat]}</h2></div><div class="grid">${rel.map(card).join('')}</div></div>`}
+/* info pages */
+const PAGES={about:['Who we are',['TyreComp has made tyres since 1980. Our plants in three states supply cars, bikes, trucks and tractors across the country.','Every tyre is tested for grip, braking and wear on our own proving ground before it reaches you.']],
+careers:['Careers',['We hire engineers, plant technicians and retail teams. Send your CV to careers@tyrecomp.example.']],press:['Press & media',['For interviews and brand assets, write to press@tyrecomp.example.']],
+sustainability:['Sustainability',['Our EcoGrip range cuts rolling resistance to save fuel, and our plants recycle 90% of process water.']],
+warranty:['Warranty claims',['All passenger tyres carry a 5-year warranty against manufacturing defects. Visit any dealer with your invoice to start a claim.']],
+care:['Tyre care guide',['Check pressure monthly, rotate every 8,000 km, and replace tyres once tread reaches 1.6 mm.']],
+faq:['FAQs',['How do I find my tyre size? It is printed on the sidewall, for example 205/55 R16.','Do you fit tyres? Yes, at every listed dealer and with our mobile fitting van.']],
+'become-dealer':['Become a dealer',['Join 2,800 dealers across India. Tell us about your shop and we will call you within two working days.'],['Name','Email','Message']],
+contact:['Contact us',['Toll free 1800-555-TYRE, Mon-Sat 9am to 7pm, or send us a message.'],['Name','Email','Message']],
+signin:['Sign in',['Sign in to track orders and manage your garage.'],['Email','Password']],
+track:['Track order',['Enter your order number to see its status.'],['Order number']],
+privacy:['Privacy',['We only use your details to process orders and service requests.']],terms:['Terms',['Prices include GST. Fitting is free above ₹20,000.']],
+sitemap:['Sitemap',['<a href="#/">Home</a>, <a href="#/shop/all">All tyres</a>, <a href="#/dealers">Dealers</a>, <a href="#/about">About</a>, <a href="#/contact">Contact</a>, <a href="#/cart">Cart</a>']]};
+function page(k){const [t,ps,fs]=PAGES[k];PG.innerHTML=`${hero(t,"")}<div class="w pg"><div class="txt">${ps.map(x=>`<p>${x}</p>`).join('')}</div>`+(fs?`<form class="frm" onsubmit="return sub(event)">${fs.map(f=>f=='Message'?`<textarea rows="4" placeholder="Message" aria-label="Message"></textarea>`:`<input placeholder="${f}" aria-label="${f}" type="${f=='Email'?'email':f=='Password'?'password':'text'}" required>`).join('')}<button class="btn">${t}</button></form>`:'')+`</div>`}
+const sub=e=>{e.preventDefault();toast('Thanks, we have received your request');e.target.reset();return false};
+const DL=[['Kochi','TyreComp Hub, MG Road','682001'],['Thiruvananthapuram','Velox Tyres, Pattom','695004'],['Kozhikode','Mavoor Road Tyre Point','673004'],['Bengaluru','Koramangala Auto Care','560034'],['Chennai','Anna Salai Tyres','600002'],['Mumbai','Andheri Wheel Works','400053'],['Delhi','Karol Bagh Tyre Mart','110005'],['Hyderabad','Banjara Hills Tyre Hub','500034']];
+function dealers(q){PG.innerHTML=`<div class="w pg"><div class="bc"><a href="#/">Home</a> / Dealers</div><h1>Find a dealer</h1><div class="search" style="max-width:480px;margin-top:16px"><input id="dq" placeholder="City or pincode" aria-label="City or pincode"><button aria-label="Search"><svg class="i"><use href="#search"/></svg></button></div><div class="dl" id="dl"></div></div>`;
+const f=()=>{const v=$('#dq').value.toLowerCase().trim(),a=DL.filter(d=>(d[0]+d[1]+d[2]).toLowerCase().includes(v));$('#dl').innerHTML=a.length?a.map((d,i)=>`<div><b>${d[1]}</b><br>${d[0]} ${d[2]}<br>1800-555-${1000+i}</div>`).join(''):'<p>No dealer found. Try a nearby city name.</p>'};$('#dq').value=q;$('#dq').oninput=f;f()}
+/* home */
+let i=0,tm,F=[];const per=()=>innerWidth<641?1:innerWidth<1001?2:3,max=()=>F.length-per();
+function show(n){const m=max();i=n>m?0:n<0?m:n;$('#tr').style.transform=`translateX(-${i*100/per()}%)`;$('#dots').innerHTML=Array.from({length:m+1},(_,k)=>`<button class="${k==i?'on':''}" aria-label="Slide ${k+1}" onclick="show(${k});rs()"></button>`).join('')}
+function rs(){clearInterval(tm);tm=setInterval(()=>show(i+1),4500)}
+function renderHome(){F=P.filter(p=>p.tag);$('#tr').innerHTML=F.map(p=>`<div class="slide">${card(p)}</div>`).join('');
+$('#catg').innerHTML=CATS.map(c=>`<a class="cat" href="#/shop/${c[0]}"><svg class="t" viewBox="0 0 100 100" style="--hub:#d71920"><use href="#tyre"/></svg><h3>${c[1]}</h3><span>${c[2]}</span></a>`).join('');show(0);rs()}
+$('.arr.l').onclick=()=>{show(i-1);rs()};$('.arr.r').onclick=()=>{show(i+1);rs()};addEventListener('resize',()=>F.length&&show(i));
+/* rich info pages */
+const hero=(t,s)=>`<section class="ph2"><div class="w"><div class="bc"><a href="#/">Home</a> / ${t}</div><h1>${t}</h1><p>${s}</p></div><svg class="rt" viewBox="0 0 100 100" aria-hidden="true"><use href="#tyre"/></svg></section>`;
+const ic=n=>`<svg class="i"><use href="#${n}"/></svg>`,out=h=>{PG.innerHTML=h},chip=b=>[...b.parentNode.children].forEach(x=>x.classList.toggle('on',x==b)),chips=(a,f)=>`<div class="chips">${a.map((c,i)=>`<button class="${i?'':'on'}" onclick="chip(this);${f}('${c}')">${c}</button>`).join('')}</div>`;
+let io;function fx(){io&&io.disconnect();io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');if(e.target.dataset.n)cnt(e.target);io.unobserve(e.target)}),{threshold:.2});document.querySelectorAll('.rv,[data-n]').forEach(x=>io.observe(x))}
+function cnt(el){const n=+el.dataset.n,sf=el.dataset.s||'',t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/1400);el.textContent=Math.round(n*(1-Math.pow(1-k,3))).toLocaleString('en-IN')+sf;if(k<1)requestAnimationFrame(f)})(t0)}
+addEventListener('scroll',()=>{const t=document.querySelector('.ph2 .rt');if(t&&!matchMedia('(prefers-reduced-motion:reduce)').matches)t.style.transform=`rotate(${scrollY*.35}deg)`},{passive:true});
+const RICH={};
+RICH.about=()=>{const T=[[1980,'First plant opens in Kochi','Fifty workers, one press line and a promise to build tyres that last.'],[1992,'Two-wheeler range','ZipRide brings grip and mileage to scooters and motorcycles.'],[2004,'Proving ground opens','Wet braking, high-speed and endurance tests move in-house.'],[2012,'Truck and bus radials','HaulPro tyres cut running costs for fleets on long hauls.'],[2019,'EcoGrip launches','Our low rolling resistance compound saves fuel on every trip.'],[2026,'Velox Series','20% longer tread life and shorter wet braking.']];
+out(hero('Who we are','From a single press line to 2,800 dealers, we have spent 45 years making tyres for Indian roads.')+`<div class="stats"><div class="w">${[[45,'+','years on the road'],[2800,'','dealers nationwide'],[60,'M','tyres delivered'],[3,'','manufacturing plants']].map(x=>`<div><b data-n="${x[0]}" data-s="${x[1]}">0</b>${x[2]}</div>`).join('')}</div></div><div class="w pg"><h2 class="h2">Our story</h2><div class="tl">${T.map((e,i)=>`<div class="ti rv ${i%2?'r':''}"><b>${e[0]}</b><h3>${e[1]}</h3><p>${e[2]}</p></div>`).join('')}</div><h2 class="h2">What we stand for</h2><div class="why">${[['shield','Safety first','Every compound is tested on wet and dry tracks before sale.'],['leaf','Built to last','Tread designs that wear evenly and run cooler.'],['truck','Always nearby','A dealer or mobile fitting van within reach of most pincodes.']].map((x,i)=>`<div class="rv" style="transition-delay:${i*.12}s">${ic(x[0])}<h3>${x[1]}</h3><p>${x[2]}</p></div>`).join('')}</div><p style="margin-top:30px"><a class="btn" href="#/careers">Join our team</a></p></div>`)};
+RICH.careers=()=>{window.JB=[['Tyre Compound Engineer','Engineering','Kochi','Full time','Develop rubber compounds that balance grip, wear and rolling resistance.'],['Test Driver','Engineering','Chennai','Full time','Run braking and handling trials at our proving ground.'],['Plant Technician','Plant','Kochi','Shift work','Operate and maintain curing presses on the production line.'],['Quality Inspector','Plant','Bengaluru','Full time','Inspect finished tyres and sign off every batch.'],['Store Manager','Retail','Kozhikode','Full time','Lead a dealership team and keep customers rolling.'],['Fitting Specialist','Retail','Mumbai','Full time','Balance, align and fit tyres with care and speed.']];
+out(hero('Careers','Build the tyres that carry millions of journeys.')+`<div class="w pg"><div class="perks">${[['shield','Health cover for your family'],['truck','Relocation support'],['leaf','Green commute allowance']].map((x,i)=>`<div class="rv" style="transition-delay:${i*.12}s">${ic(x[0])}<b>${x[1]}</b></div>`).join('')}</div><h2 class="h2">Open roles</h2>${chips(['All','Engineering','Plant','Retail'],'jf')}<div id="jb"></div></div>`);jf('All')};
+function jf(c){$('#jb').innerHTML=JB.filter(j=>c=='All'||j[1]==c).map(j=>`<details class="jd"><summary><b>${j[0]}</b><span>${j[2]}, ${j[3]}</span><i class="pill">${j[1]}</i></summary><p>${j[4]}</p><button class="btn" onclick="toast('Application started for ${j[0]}')">Apply</button></details>`).join('')}
+RICH.press=()=>{window.NW=[['12 Aug 2026','Product','Velox Series launches with 20% longer tread life','Three new sizes arrive at dealers this month, tested for shorter braking distances on wet roads.'],['28 Jul 2026','Company','TyreComp opens its 2,800th dealership','The new Kochi hub offers same-day fitting and a customer lounge.'],['15 Jun 2026','Awards','EcoGrip named a top fuel-saving tyre','Independent tests found lower rolling resistance than the segment average.'],['02 May 2026','Product','TerraMax AT adds 18-inch sizes','All-terrain grip now reaches compact SUVs.'],['19 Mar 2026','Company','Mobile fitting vans reach 40 cities','Book a van and get tyres changed at home or office.'],['10 Jan 2026','Awards','Plant earns water stewardship certificate','The Kochi plant recycles 90% of its process water.']];
+out(hero('Press & media','News, launches and brand assets. Sample content for this demo.')+`<div class="w pg">${chips(['All','Product','Company','Awards'],'pf')}<div id="pn"></div><div class="kit"><div><h2>Media kit</h2><p>Logos, product renders and executive bios.</p></div><button class="btn" onclick="toast('Media kit download is not available in this demo')">Download kit</button></div></div>`);pf('All')};
+function pf(c){$('#pn').innerHTML=NW.filter(n=>c=='All'||n[1]==c).map(n=>`<details class="nw"><summary><span class="dt">${n[0]}</span><i class="pill">${n[1]}</i><b>${n[2]}</b></summary><p>${n[3]}</p></details>`).join('')}
+const ring=(p,l)=>`<div class="rgw rv"><svg class="rg" viewBox="0 0 120 120" role="img" aria-label="${p}% ${l}"><circle class="bgc" cx="60" cy="60" r="50"/><circle class="fg" cx="60" cy="60" r="50" style="--o:${314*(1-p/100)}" transform="rotate(-90 60 60)"/><text x="60" y="69" text-anchor="middle">${p}%</text></svg><span>${l}</span></div>`;
+RICH.sustainability=()=>{out(hero('Sustainability','Lower rolling resistance, recycled water and a plan for every tyre at end of life.')+`<div class="w pg"><h2 class="h2">Our progress</h2><div class="rings">${ring(90,'process water recycled')+ring(35,'recycled materials')+ring(18,'lower rolling resistance')+ring(70,'renewable plant power')}</div><h2 class="h2">Life of a tyre</h2><div class="lcs">${[['Source','Natural rubber from certified plantations.'],['Make','Efficient curing with recycled water.'],['Drive','EcoGrip compounds save fuel every trip.'],['Recycle','Worn tyres become road material and fuel.']].map((x,i)=>`<div class="lc rv" style="transition-delay:${i*.15}s"><h3>${x[0]}</h3><p>${x[1]}</p></div>`).join('')}</div><h2 class="h2">Fuel saving calculator</h2><div class="calc"><label>Distance driven per year: <b id="kv"></b><input type="range" id="km" min="5000" max="40000" step="1000" value="12000" oninput="sc()" style="width:100%;accent-color:#d71920"></label><div class="res"><div><b id="r1"></b>litres saved</div><div><b id="r2"></b>saved per year</div><div><b id="r3"></b>kg CO₂ avoided</div></div><small>Illustrative estimate: 15 km per litre, ₹100 per litre and a 4% saving with EcoGrip.</small></div></div>`);sc()};
+function sc(){const k=+$('#km').value,l=k/15*.04;$('#kv').textContent=k.toLocaleString('en-IN')+' km';$('#r1').textContent=Math.round(l);$('#r2').textContent=inr(Math.round(l*100));$('#r3').textContent=Math.round(l*2.3)}
+RICH.care=()=>{out(hero('Tyre care guide','Four habits that add thousands of kilometres to your tyres.')+`<div class="w pg">${chips(['Pressure','Rotation','Tread depth','Storage'],'ctab')}<div id="cp" class="cpn"></div></div>`);ctab('Pressure')};
+const VP=[['Hatchback',32],['Sedan',33],['SUV',35],['Scooter',28],['Motorcycle',30]],cards=a=>`<div class="why">${a.map((x,i)=>`<div class="rv" style="transition-delay:${i*.1}s">${ic(x[0])}<h3>${x[1]}</h3><p>${x[2]}</p></div>`).join('')}</div>`;
+function ctab(t){const p=$('#cp');p.className='cpn';void p.offsetWidth;p.className='cpn';
+if(t=='Pressure'){p.innerHTML=`<label>Vehicle <select id="vp" oninput="gp()" style="max-width:260px">${VP.map(v=>`<option value="${v[1]}">${v[0]}</option>`).join('')}</select></label><div class="gauge"><svg viewBox="0 0 200 120" role="img" aria-label="Pressure gauge"><path d="M20 100A80 80 0 0 1 180 100" fill="none" stroke="var(--line)" stroke-width="14" stroke-linecap="round"/><path d="M60 38A80 80 0 0 1 140 38" fill="none" stroke="#2c9e5b" stroke-width="14" opacity=".8"/><line id="nd" x1="100" y1="100" x2="100" y2="34" stroke="#d71920" stroke-width="4" stroke-linecap="round"/><circle cx="100" cy="100" r="7" fill="#d71920"/></svg><b id="pv2"></b></div><p>Check pressure monthly when tyres are cold. Add 2 psi when carrying a full load.</p>`;$('#nd').style.transform='rotate(-90deg)';setTimeout(gp,60)}
+else if(t=='Rotation')p.innerHTML=cards([['truck','Every 8,000 km','Swap front and rear tyres to even out wear.'],['scale','Cross pattern','Move rear tyres to opposite fronts on front-wheel-drive cars.'],['shield','Check alignment','Uneven wear on one edge points to misalignment.']]);
+else if(t=='Tread depth')p.innerHTML=`<label>Measured tread depth: <b id="tdv"></b><input type="range" id="td" min="0" max="9" step=".1" value="6" oninput="tdp()" style="width:100%;max-width:420px;accent-color:#d71920;display:block"></label><div class="tbar"><i id="tdb"></i></div><h3 id="tdt" style="margin:14px 0 4px"></h3><p>The legal limit is 1.6 mm. Coin test: if you can see the whole rim of a coin in the groove, the tread is low.</p>`,tdp();
+else p.innerHTML=cards([['shield','Keep it cool','Store tyres away from sunlight and heat.'],['scale','Stack or hang','Stack flat tyres, hang tyres on rims.'],['leaf','Clean first','Wash off oil and road salt before storing.']]);
+chip([...document.querySelectorAll('.chips button')].find(b=>b.textContent==t));fx()}
+function gp(){const v=+$('#vp').value;$('#nd').style.transform=`rotate(${(v-20)/25*180-90}deg)`;$('#pv2').textContent=v+' psi'}
+function tdp(){const v=+$('#td').value,b=$('#tdb');$('#tdv').textContent=v.toFixed(1)+' mm';b.style.width=v/9*100+'%';b.style.background=v>=4?'#2c9e5b':v>=1.6?'#f2a900':'#d71920';$('#tdt').textContent=v>=4?'Good: keep checking monthly':v>=1.6?'Watch: plan a replacement soon':'Replace now: below the legal limit'}
+RICH.faq=()=>{window.FQ=[['Sizing','How do I find my tyre size?','It is printed on the sidewall, for example 205/55 R16: width, aspect ratio and rim size.'],['Sizing','Can I fit a different size?','Stay within 3% of the original rolling diameter and ask a dealer to confirm.'],['Fitting','Do you fit tyres?','Yes, at every listed dealer and with our mobile fitting van in 40 cities.'],['Fitting','How long does fitting take?','About 45 minutes for four tyres, including balancing.'],['Warranty','What does the warranty cover?','Five years against manufacturing defects on passenger tyres.'],['Warranty','How do I claim?','Visit a dealer with your invoice and the tyre. See Warranty claims for the steps.'],['Orders','Can I return a tyre?','Unused tyres can be returned within 7 days in original condition.'],['Orders','Is fitting free?','Fitting is free on orders above ₹20,000.']];
+out(hero('FAQs','Quick answers about sizes, fitting, warranty and orders.')+`<div class="w pg"><div class="search" style="max-width:520px"><input id="fs" oninput="ff()" placeholder="Search questions" aria-label="Search questions"><button aria-label="Search">${ic('search')}</button></div>${chips(['All','Sizing','Fitting','Warranty','Orders'],'ff')}<div id="fl"></div></div>`);ff('All')};
+function ff(c){c=typeof c=='string'?c:(document.querySelector('.chips .on')||{}).textContent||'All';const v=$('#fs').value.toLowerCase(),a=FQ.filter(f=>(c=='All'||f[0]==c)&&(f[1]+f[2]).toLowerCase().includes(v));
+$('#fl').innerHTML=a.length?a.map(f=>`<div class="fq"><button aria-expanded="false" onclick="fo(this)">${f[1]}${ic('plus')}</button><div class="fa"><div><p>${f[2]}</p></div></div></div>`).join(''):'<p>No questions match. Try another word or <a href="#/contact" style="color:var(--red)">contact us</a>.</p>'}
+function fo(b){const q=b.parentNode,o=q.classList.toggle('open');b.setAttribute('aria-expanded',o)}
+RICH.warranty=()=>{out(hero('Warranty claims','Five years of cover, with a four-step claim.')+`<div class="w pg"><div class="stp" id="sp">${[1,2,3,4].map(n=>`<button onclick="ws(${n-1})">Step ${n}</button>`).join('')}</div><div class="tbar"><i id="wb" style="background:var(--red)"></i></div><div id="wp" class="cpn" style="min-height:130px"></div><p><a class="btn" href="#/dealers">Find a dealer</a></p></div>`);ws(0)};
+function ws(i){const S4=[['Visit a dealer','Bring the tyre and your invoice to any TyreComp dealer.'],['Inspection','A technician checks the tyre for manufacturing defects.'],['Decision','You get a result within 3 working days.'],['Replace or refund','Approved claims are replaced or credited on the spot.']];
+document.querySelectorAll('#sp button').forEach((b,k)=>b.classList.toggle('on',k<=i));$('#wb').style.width=(i+1)*25+'%';const p=$('#wp');p.className='';void p.offsetWidth;p.className='cpn';p.innerHTML=`<h2 class="h2" style="margin-top:24px">${S4[i][0]}</h2><p class="txt">${S4[i][1]}</p>`}
+/* router */
+function route(){const h=location.hash;if(h.length>1&&!h.startsWith('#/'))return;const [p,qs]=h.slice(2).split('?'),s=p.split('/').filter(Boolean),q=new URLSearchParams(qs||''),k=s[0]||'';
+V0.hidden=!!k;PG.hidden=!k;
+if(!k)renderHome();else if(k=='shop'){S={...D,mode:S.mode,cat:CN[s[1]]?s[1]:'all',q:q.get('q')||'',brand:q.get('brand')||''};shop()}else if(k=='product'&&P[s[1]])prod(P[s[1]]);else if(k=='cart')cart();else if(k=='dealers')dealers(q.get('q')||'');else if(RICH[k])RICH[k]();else if(PAGES[k])page(k);else PG.innerHTML='<div class="w pg"><h1>Page not found</h1><p><a class="btn" href="#/">Back to home</a></p></div>';
+const cur='#/'+(k=='shop'?'shop/'+S.cat:k);document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==cur));fx();scrollTo(0,0)}
+const MAP={whoweare:'about',ourstory:'about',careers:'careers',pressmedia:'press',sustainability:'sustainability',cartyres:'shop/car',suv4x4:'shop/suv',twowheeler:'shop/bike',truckbus:'shop/truck',farmtyres:'shop/farm',contactus:'contact',warrantyclaims:'warranty',tyrecareguide:'care',faqs:'faq',becomeadealer:'become-dealer',privacy:'privacy',terms:'terms',sitemap:'sitemap',dealerlogin:'signin',trackorder:'track',support:'contact',viewall:'shop/all',tyrecomp:''};
+document.querySelectorAll('a[href="#"]:not([onclick])').forEach(a=>{const b=a.textContent.trim(),t=(b||a.getAttribute('aria-label')||'').replace(/\W+/g,'').toLowerCase();a.setAttribute('href','#/'+(BR.includes(b)?'shop/all?brand='+b:MAP[t]??'contact'))});
+function toast(m){const t=$('#toast');t.textContent=m;t.className='s';setTimeout(()=>t.className='',2200)}
+function go(e){e.preventDefault();const q=$('#q').value.trim();location.hash='#/shop/all'+(q?'?q='+encodeURIComponent(q):'');return false}
+function dl(e){e.preventDefault();location.hash='#/dealers?q='+encodeURIComponent(e.target.querySelector('input').value);return false}
+function th(){const r=document.documentElement,d=r.dataset.theme?r.dataset.theme=='dark':matchMedia('(prefers-color-scheme:dark)').matches;r.dataset.theme=d?'light':'dark'}
+addEventListener('hashchange',route);route();
+</script></body></html>
