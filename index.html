@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>TyreComp – Tyres built for every road</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="bgfx" aria-hidden="true">
+      <i class="g1"></i>
+      <i class="g2"></i>
+      <i class="g3"></i>
+      <svg class="rr a" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="96"/>
+        <circle class="d" cx="100" cy="100" r="80"/>
+        <circle cx="100" cy="100" r="62"/>
+        <circle cx="100" cy="100" r="30"/>
+      </svg>
+      <svg class="rr b" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="96"/>
+        <circle class="d" cx="100" cy="100" r="80"/>
+        <circle cx="100" cy="100" r="62"/>
+        <circle cx="100" cy="100" r="30"/>
+      </svg>
+    </div>
+    <svg width="0" height="0" style="position:absolute">
+      <defs>
+        <symbol id="tyre" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="48" fill="#1b1b1d"/>
+          <circle cx="50" cy="50" r="46" fill="none" stroke="#3a3a3e" stroke-width="7" stroke-dasharray="3.2 2.2"/>
+          <circle cx="50" cy="50" r="38" fill="none" stroke="#2b2b2f" stroke-width="2"/>
+          <circle cx="50" cy="50" r="28" fill="#c9ccd1"/>
+          <circle cx="50" cy="50" r="25" fill="#e8eaed"/>
+          <g stroke="#8b9099" stroke-width="3.2" stroke-linecap="round">
+            <path d="M50 50V28M50 50l19-11M50 50l19 11M50 50V72M50 50L31 61M50 50L31 39"/>
+          </g>
+          <circle cx="50" cy="50" r="7" fill="var(--hub,#d71920)"/>
+          <circle cx="50" cy="50" r="2.5" fill="#fff"/>
+          <path d="M12 42a40 40 0 0 1 8-14" stroke="#d71920" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".9"/>
+        </symbol>
+        <symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+        <symbol id="user" viewBox="0 0 24 24">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>
+        </symbol>
+        <symbol id="cart" viewBox="0 0 24 24">
+          <path d="M3 4h3l2.5 11h10l2-8H7"/>
+          <circle cx="9" cy="19.5" r="1.4"/>
+          <circle cx="17" cy="19.5" r="1.4"/>
+        </symbol>
+        <symbol id="pin" viewBox="0 0 24 24">
+          <path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.800 12 21 12 21z"/>
+          <circle cx="12" cy="9.500" r="2.500"/>
+        </symbol>
+        <symbol id="car" viewBox="0 0 24 24">
+          <path d="M3 16v-4l2-5h14l2 5v4M3 16h18M3 16v2h3v-2M18 16v2h3v-2"/>
+          <circle cx="7.500" cy="13" r=".8"/>
+          <circle cx="16.500" cy="13" r=".8"/>
+        </symbol>
+        <symbol id="ruler" viewBox="0 0 24 24">
+          <rect x="2" y="8" width="20" height="8" rx="1.500"/>
+          <path d="M6 8v3M10 8v4M14 8v3M18 8v4"/>
+        </symbol>
+        <symbol id="scale" viewBox="0 0 24 24">
+          <path d="M12 3v18M5 21h14M5 7h14M5 7l-3 7a3.500 3.500 0 0 0 6 0zM19 7l-3 7a3.500 3.500 0 0 0 6 0z"/>
+        </symbol>
+        <symbol id="shield" viewBox="0 0 24 24">
+          <path d="M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6z"/>
+          <path d="m8.500 12 2.500 2.500 4.500-5"/>
+        </symbol>
+        <symbol id="truck" viewBox="0 0 24 24">
+          <path d="M2 6h12v10H2zM14 10h4l3 3v3h-7"/>
+          <circle cx="6.500" cy="17.500" r="1.800"/>
+          <circle cx="17.500" cy="17.500" r="1.800"/>
+        </symbol>
+        <symbol id="leaf" viewBox="0 0 24 24">
+          <path d="M5 19c0-9 5-14 15-14 0 10-5 15-14 15M5 19c2-5 5-8 9-10"/>
+        </symbol>
+        <symbol id="left" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+        <symbol id="right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+        <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+        <symbol id="phone" viewBox="0 0 24 24">
+          <path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/>
+        </symbol>
+        <symbol id="mail" viewBox="0 0 24 24">
+          <rect x="3" y="5" width="18" height="14" rx="2"/>
+          <path d="m3 7 9 6 9-6"/>
+        </symbol>
+        <symbol id="share" viewBox="0 0 24 24">
+          <circle cx="6" cy="12" r="2.500"/>
+          <circle cx="18" cy="6" r="2.500"/>
+          <circle cx="18" cy="18" r="2.500"/>
+          <path d="m8.200 11 7.600-4M8.200 13l7.600 4"/>
+        </symbol>
+        <symbol id="sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.500 1.500M17.500 17.500 19 19M5 19l1.500-1.500M17.500 6.500 19 5"/>
+        </symbol>
+        <radialGradient id="rim">
+          <stop offset="0" stop-color="#f6f7f9"/>
+          <stop offset="1" stop-color="#8d939c"/>
+        </radialgradient>
+        <radialGradient id="studio" cx=".5" cy=".45" r=".75">
+          <stop offset="0" stop-color="#fafafa"/>
+          <stop offset="1" stop-color="#c3c8cf"/>
+        </radialgradient>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#9fc1e6"/>
+          <stop offset="1" stop-color="#f3e9d8"/>
+        </lineargradient>
+        <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#55585e"/>
+          <stop offset="1" stop-color="#2a2c30"/>
+        </lineargradient>
+        <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity=".4"/>
+          <stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+          <stop offset="1" stop-color="#000" stop-opacity=".35"/>
+        </lineargradient>
+      </defs>
+    </svg>
+    <div class="top">
+      <div class="w">
+        <div>
+          <span><svg class="i"><use href="#phone"/></svg> 1800-555-TYRE</span>
+          <span><svg class="i"><use href="#truck"/></svg> Free fitting on orders above ₹20,000</span>
+        </div>
+        <div><a href="#">Dealer login</a> &nbsp;|&nbsp; <a href="#">Track order</a> &nbsp;|&nbsp; <a href="#">Support</a></div>
+      </div>
+    </div>
+    <header>
+      <div class="w hd">
+        <a class="logo" href="#">
+          <svg class="spin" viewBox="0 0 100 100" aria-hidden="true"><use href="#tyre"/></svg>
+          <span>Tyre<b>Comp</b></span>
+        </a>
+        <form class="search" role="search" onsubmit="return go(event)">
+          <input id="q" type="search" placeholder="Search tyres by brand, model or size (e.g. 205/55 R16)" aria-label="Search tyres">
+          <button aria-label="Search"><svg class="i"><use href="#search"/></svg></button>
+        </form>
+        <div class="acts">
+          <a href="#/dealers"><svg class="i"><use href="#pin"/></svg><span>Dealers</span></a>
+          <a href="#/signin"><svg class="i"><use href="#user"/></svg><span>Sign in</span></a>
+          <a href="#/cart">
+            <svg class="i"><use href="#cart"/></svg>
+            <span>Cart</span>
+            <b class="bg" id="cc">0</b>
+          </a>
+          <a href="#" onclick="th();return false" aria-label="Toggle theme">
+            <svg class="i"><use href="#sun"/></svg>
+            <span>Theme</span>
+          </a>
+        </div>
+      </div>
+      <nav aria-label="Main">
+        <div class="w">
+          <a href="#/">Home</a>
+          <a href="#/shop/all">All tyres</a>
+          <a href="#/shop/car">Car</a>
+          <a href="#/shop/suv">SUV &amp; 4x4</a>
+          <a href="#/shop/bike">Two-wheeler</a>
+          <a href="#/shop/truck">Truck &amp; Bus</a>
+          <a href="#/shop/farm">Farm</a>
+          <a href="#/dealers">Find a dealer</a>
+          <a href="#/about">About</a>
+          <a href="#/contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+    <main id="v-home">
+      <section class="hero">
+        <div class="w">
+          <div>
+            <h1>Grip the road.<br>Own the miles.</h1>
+            <p>Engineered in India, tested on every terrain. Explore the new Velox Series with 20% longer tread life and shorter braking on wet roads.</p>
+            <p style="display:flex;gap:12px;flex-wrap:wrap">
+              <a class="btn" href="#featured">Shop new arrivals</a>
+              <a class="btn o" href="#/dealers">Find a dealer</a>
+            </p>
+          </div>
+          <svg class="big" viewBox="0 0 100 100" aria-hidden="true"><use href="#tyre"/></svg>
+        </div>
+      </section>
+      <div class="w">
+        <div class="acc">
+          <a href="#/shop/all">
+            <svg class="i"><use href="#car"/></svg>
+            <div><b>By vehicle</b><small>Make, model, variant</small></div>
+          </a>
+          <a href="#/shop/all">
+            <svg class="i"><use href="#ruler"/></svg>
+            <div><b>By tyre size</b><small>Width, ratio, rim</small></div>
+          </a>
+          <a href="#/dealers">
+            <svg class="i"><use href="#pin"/></svg>
+            <div><b>Dealer locator</b><small>Fitting near you</small></div>
+          </a>
+          <a href="#/shop/all">
+            <svg class="i"><use href="#scale"/></svg>
+            <div><b>Compare tyres</b><small>Side by side specs</small></div>
+          </a>
+        </div>
+      </div>
+      <section class="sec" id="featured">
+        <div class="w">
+          <div class="sh">
+            <h2>Featured &amp; trending</h2>
+            <a href="#" class="btn o" style="color:var(--ink);border-color:var(--ink)">View all</a>
+          </div>
+          <div class="car">
+            <button class="arr l" aria-label="Previous"><svg class="i"><use href="#left"/></svg></button>
+            <div class="vp">
+              <div class="tr" id="tr"></div>
+            </div>
+            <button class="arr r" aria-label="Next"><svg class="i"><use href="#right"/></svg></button>
+          </div>
+          <div class="dots" id="dots"></div>
+        </div>
+      </section>
+      <section class="sec alt" id="cats">
+        <div class="w">
+          <div class="sh">
+            <h2>Shop by category</h2>
+          </div>
+          <div class="cats" id="catg"></div>
+        </div>
+      </section>
+      <section class="stats">
+        <div class="w">
+          <div><b>45+</b>years on the road</div>
+          <div><b>2,800</b>dealers nationwide</div>
+          <div><b>60M</b>tyres delivered</div>
+          <div><b>4.7★</b>customer rating</div>
+        </div>
+      </section>
+      <section class="sec" id="why">
+        <div class="w">
+          <div class="sh">
+            <h2>Why TyreComp</h2>
+          </div>
+          <div class="why">
+            <div>
+              <svg class="i"><use href="#shield"/></svg>
+              <h3>5‑year warranty</h3>
+              <p>Every passenger tyre is covered against manufacturing defects for five years.</p>
+            </div>
+            <div>
+              <svg class="i"><use href="#truck"/></svg>
+              <h3>Fitted at your door</h3>
+              <p>Book a mobile fitting van and get tyres changed at home or office.</p>
+            </div>
+            <div>
+              <svg class="i"><use href="#leaf"/></svg>
+              <h3>Lower rolling resistance</h3>
+              <p>EcoGrip compounds save fuel and cut CO₂ on every journey.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="sec alt" id="brands">
+        <div class="w">
+          <div class="sh">
+            <h2>Our tyre ranges</h2>
+          </div>
+          <div class="brands">
+            <a href="#">Velox</a>
+            <a href="#">TerraMax</a>
+            <a href="#">EcoGrip</a>
+            <a href="#">AquaShield</a>
+            <a href="#">RoadKing</a>
+            <a href="#">Trailblazer</a>
+            <a href="#">ZipRide</a>
+            <a href="#">HaulPro</a>
+            <a href="#">FieldMaster</a>
+          </div>
+        </div>
+      </section>
+      <section class="news" id="dealers">
+        <div class="w">
+          <div>
+            <h2>Find a dealer near you</h2>
+            <span style="color:#bbb">Enter your pincode to see fitting centres.</span>
+          </div>
+          <form onsubmit="return dl(event)">
+            <input aria-label="Pincode" placeholder="Pincode or city">
+            <button class="btn">Locate</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <main id="v-page" hidden></main>
+    <footer>
+      <div class="w">
+        <div class="fg">
+          <div>
+            <a class="logo" href="#" style="color:#fff">
+              <svg class="spin" viewBox="0 0 100 100" aria-hidden="true"><use href="#tyre"/></svg>
+              <span>Tyre<b>Comp</b></span>
+            </a>
+            <p style="margin-top:12px">Quality tyres for cars, bikes, trucks and tractors. Safe journeys since 1980.</p>
+            <div class="soc">
+              <a href="#" aria-label="Share"><svg class="i"><use href="#share"/></svg></a>
+              <a href="#" aria-label="Email"><svg class="i"><use href="#mail"/></svg></a>
+              <a href="#" aria-label="Call"><svg class="i"><use href="#phone"/></svg></a>
+            </div>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">Who we are</a></li>
+              <li><a href="#">Our story</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press &amp; media</a></li>
+              <li><a href="#">Sustainability</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Products</h4>
+            <ul>
+              <li><a href="#">Car tyres</a></li>
+              <li><a href="#">SUV &amp; 4x4</a></li>
+              <li><a href="#">Two‑wheeler</a></li>
+              <li><a href="#">Truck &amp; bus</a></li>
+              <li><a href="#">Farm tyres</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">Contact us</a></li>
+              <li><a href="#">Warranty claims</a></li>
+              <li><a href="#">Tyre care guide</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Become a dealer</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Reach us</h4>
+            <ul>
+              <li>1800‑555‑TYRE (toll free)</li>
+              <li>support@tyrecomp.example</li>
+              <li>Mon–Sat, 9am – 7pm</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cp">
+          <span>© 2026 TyreComp. All rights reserved. Sample content for demonstration.</span>
+          <span><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Sitemap</a></span>
+        </div>
+      </div>
+    </footer>
+    <div id="toast" role="status"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
